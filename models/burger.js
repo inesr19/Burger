@@ -25,4 +25,4 @@ const burger = {
     }
 };
 
-module.exports = {burger: burger};
+module.exports = { burger: burger };
