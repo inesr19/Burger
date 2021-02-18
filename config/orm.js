@@ -3,6 +3,7 @@ const { connection } = require('../config/connection');
 const orm = {
     selectAll: (callback) => {
         const query = 'SELECT * FROM burgers';
+        console.log(query);
 
         connection.query(query, (err, res) => {
             if(err) throw err;
@@ -13,6 +14,8 @@ const orm = {
 
     insertOne: (burger, callback) => {
         const query = 'INSERT INTO burgers (burger_name) VALUES (?)';
+        console.log(query);
+
         connection.query(query, burger, (err, res) => {
             if(err) throw err;
 
@@ -22,6 +25,8 @@ const orm = {
     
     updateOne: (id, callback) => {
         const query = 'UPDATE burgers SET devoured=true WHERE id=?';
+        console.log(query);
+        
         connection.query(query, id, (err, res) => {
             if(err) throw err;
 
