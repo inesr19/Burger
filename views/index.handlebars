@@ -2,10 +2,12 @@
 
 <ul>
     {{#each burgers}}
+    {{#unless devoured}}
     <li>
         <p>id: {{this.id}} burger: {{this.burger}}</p>
         <button type="submit">Devour It!</button>
     </li>
+    {{/unless}}
     {{/each}}
 </ul>
 
