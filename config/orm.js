@@ -24,7 +24,7 @@ const orm = {
     },
     
     updateOne: (id, callback) => {
-        const query = 'UPDATE burgers SET devoured=true WHERE id=?';
+        const query = 'UPDATE burgers SET devoured=(?) WHERE id=(?)';
         console.log(query);
         
         connection.query(query, id, (err, res) => {
