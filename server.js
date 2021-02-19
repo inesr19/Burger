@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const orm = require('./config/orm');
 const exphbs = require('express-handlebars');
@@ -6,14 +7,23 @@ const exphbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.use(express.urlencoded({ extended: true }));
+// include middleware to parse json
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.json());
+app.use(bodyParser.json());
 
-// define a port
+app.use(express.static("public"));
 
-// define routes
-    // get route to get all burgers
-    // post route to post tweet
+// handlebars 
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
-// app listening function
+// route to controller
+const route = require('./controllers/burgers_controller');
+
+app.use(route);
+
+// app is listening
+app.listen(PORT, function() {
+    console.log('App is listening on PORT: ' + PORT);
+});
