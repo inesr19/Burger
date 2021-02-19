@@ -1,4 +1,4 @@
-const { connection } = require('../config/connection');
+const connection = require('../config/connection');
 
 const orm = {
     selectAll: (callback) => {
@@ -35,4 +35,4 @@ const orm = {
     }
 };
 
-module.exports = { orm: orm };
+module.exports = orm;

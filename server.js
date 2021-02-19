@@ -1,6 +1,5 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const orm = require('./config/orm');
 const exphbs = require('express-handlebars');
 
 // initialize express app
