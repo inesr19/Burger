@@ -16,9 +16,10 @@ const burger = {
         });
     },
     updateOne: (id, callback) => {
-
+        orm.updateOne(id, (err, res) => {
         console.log(res);
         callback(res);
+        });
     }
 };
 
